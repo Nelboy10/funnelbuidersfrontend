@@ -599,7 +599,7 @@ export default function Home() {
           ═══════════════════════════════════════════════════════ */}
       <section ref={srBenefits.ref} style={{ padding: 'var(--space-24) 0', background: 'var(--color-bg-secondary)', borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)', ...fadeInStyles(srBenefits.isVisible) }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-16)', alignItems: 'center' }}>
+          <div className="benefits-grid">
             <div>
               <div style={{ color: 'var(--color-accent-primary)', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 'var(--space-3)', fontSize: 'var(--font-size-sm)' }}>Pourquoi nous choisir</div>
               <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 900, marginBottom: 'var(--space-6)', letterSpacing: '-0.02em', lineHeight: 1.15 }}>

@@ -2124,3 +2124,16 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(48px);
   }
 }
+
+/* Fix for Benefits Section Grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .benefits-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
