@@ -87,7 +87,7 @@ export default function ManageUsers() {
                   <td>
                     <Badge variant={
                       user.role === 'ADMIN' ? 'warning' :
-                      user.role === 'INSTRUCTOR' ? 'primary' : 'secondary'
+                      user.role === 'INSTRUCTOR' ? 'primary' : 'info'
                     }>
                       {user.role}
                     </Badge>

@@ -138,8 +138,6 @@ export default function CourseWatch() {
     );
   }
 
-  const allVideos = course.modules.flatMap(m => m.videos);
-  
   // Calculate total course progress
   const overallProgress = progress ? parseFloat(progress.progress_percentage) : 0;
 

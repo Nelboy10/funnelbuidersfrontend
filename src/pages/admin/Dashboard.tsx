@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import * as courseApi from '../../api/courses';
 import * as categoryApi from '../../api/categories';
 import { useAuth } from '../../context/AuthContext';
-import Card from '../../components/ui/Card';
 
 export default function AdminDashboardLayout() {
   const location = useLocation();
