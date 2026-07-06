@@ -343,26 +343,26 @@ export default function Home() {
           ═══════════════════════════════════════════════════════ */}
       <section style={{ padding: 'var(--space-16) 0', background: 'var(--color-bg-primary)', borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 'var(--space-8)', textAlign: 'center' }}>
-            <div ref={students.ref} style={{ padding: 'var(--space-6)' }}>
+          <div className="stats-grid">
+            <div ref={students.ref}>
               <div style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: 'var(--color-accent-primary)', letterSpacing: '-0.03em', lineHeight: 1 }}>
                 {students.count.toLocaleString('fr-FR')}+
               </div>
               <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-tertiary)', fontWeight: 600, marginTop: 'var(--space-2)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Étudiants formés</div>
             </div>
-            <div ref={coursesCount.ref} style={{ padding: 'var(--space-6)' }}>
+            <div ref={coursesCount.ref}>
               <div style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: 'var(--color-accent-primary)', letterSpacing: '-0.03em', lineHeight: 1 }}>
                 {coursesCount.count}+
               </div>
               <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-tertiary)', fontWeight: 600, marginTop: 'var(--space-2)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Formations disponibles</div>
             </div>
-            <div ref={satisfaction.ref} style={{ padding: 'var(--space-6)' }}>
+            <div ref={satisfaction.ref}>
               <div style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: 'var(--color-accent-primary)', letterSpacing: '-0.03em', lineHeight: 1 }}>
                 {satisfaction.count}%
               </div>
               <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-tertiary)', fontWeight: 600, marginTop: 'var(--space-2)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Taux de satisfaction</div>
             </div>
-            <div ref={revenue.ref} style={{ padding: 'var(--space-6)' }}>
+            <div ref={revenue.ref}>
               <div style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: 'var(--color-accent-primary)', letterSpacing: '-0.03em', lineHeight: 1 }}>
                 {(revenue.count / 1_000_000).toFixed(0)}M FCFA
               </div>
@@ -377,14 +377,14 @@ export default function Home() {
           ═══════════════════════════════════════════════════════ */}
       <section ref={srAudience.ref} style={{ padding: 'var(--space-24) 0', background: 'var(--color-bg-secondary)', ...fadeInStyles(srAudience.isVisible) }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto var(--space-16)' }}>
-            <div style={{ color: 'var(--color-accent-primary)', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 'var(--space-3)', fontSize: 'var(--font-size-sm)' }}>À qui s'adresse ce programme ?</div>
+          <div className="section-header">
+            <div className="section-eyebrow">À qui s'adresse ce programme ?</div>
             <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 900, marginBottom: 'var(--space-4)', letterSpacing: '-0.02em', lineHeight: 1.15 }}>
               Nos méthodes fonctionnent, <br/> mais pas pour tout le monde.
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-8)' }}>
+          <div className="cards-grid-2">
             
             {/* NO */}
             <div className="glass-card" style={{ padding: 'var(--space-10)', borderRadius: 'var(--radius-2xl)', borderTop: '4px solid var(--color-error)' }}>
@@ -431,16 +431,16 @@ export default function Home() {
           ═══════════════════════════════════════════════════════ */}
       <section ref={srCourses.ref} style={{ padding: 'var(--space-24) 0', position: 'relative', ...fadeInStyles(srCourses.isVisible) }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto var(--space-16)' }}>
-            <div style={{ color: 'var(--color-accent-primary)', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 'var(--space-3)', fontSize: 'var(--font-size-sm)' }}>Nos formations vedettes</div>
+          <div className="section-header">
+            <div className="section-eyebrow">Nos formations vedettes</div>
             <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', fontWeight: 900, marginBottom: 'var(--space-4)', letterSpacing: '-0.02em' }}>
               Des programmes qui ont prouvé<br />leur efficacité
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 'var(--space-8)' }}>
+          <div className="cards-grid">
             {courses.map((course, i) => (
-              <div key={i} className="card card--interactive" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius-2xl)', overflow: 'hidden', border: '1px solid var(--color-border)', background: 'var(--color-bg-card)' }}>
+              <div key={i} className="course-card">
                 {/* Image */}
                 <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '16/10' }}>
                   <img src={course.img} alt={course.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)' }} />
@@ -460,7 +460,7 @@ export default function Home() {
                   <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-sm)', lineHeight: 1.6, flex: 1, marginBottom: 'var(--space-6)' }}>{course.desc}</p>
                   
                   {/* Price & CTA */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 'var(--space-4)', borderTop: '1px solid var(--color-border)' }}>
+                  <div className="price-row">
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
                       <span style={{ fontSize: 'var(--font-size-2xl)', fontWeight: 900, color: 'var(--color-text-primary)' }}>{course.price}</span>
                       <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-tertiary)', textDecoration: 'line-through' }}>{course.oldPrice}</span>
@@ -483,8 +483,8 @@ export default function Home() {
           ═══════════════════════════════════════════════════════ */}
       <section ref={srMentors.ref} style={{ padding: 'var(--space-24) 0', background: 'var(--color-bg-secondary)', borderTop: '1px solid var(--color-border)', ...fadeInStyles(srMentors.isVisible) }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto var(--space-16)' }}>
-            <div style={{ color: 'var(--color-accent-primary)', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 'var(--space-3)', fontSize: 'var(--font-size-sm)' }}>L'équipe pédagogique</div>
+          <div className="section-header">
+            <div className="section-eyebrow">L'équipe pédagogique</div>
             <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 900, marginBottom: 'var(--space-4)', letterSpacing: '-0.02em', lineHeight: 1.15 }}>
               Ne prenez pas de conseils <br/> de ceux qui n'ont rien fait.
             </h2>
@@ -494,9 +494,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-8)', justifyContent: 'center' }}>
+          <div className="cards-grid-2">
             {mentors.map((mentor, idx) => (
-              <div key={idx} className="glass-card" style={{ padding: 'var(--space-6)', borderRadius: 'var(--radius-2xl)', display: 'flex', gap: 'var(--space-6)', alignItems: 'center' }}>
+              <div key={idx} className="glass-card mentor-card">
                 <img src={mentor.img} alt={mentor.name} style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', border: '3px solid white', boxShadow: 'var(--shadow-md)', flexShrink: 0 }} />
                 <div>
                   <h3 style={{ fontSize: 'var(--font-size-xl)', fontWeight: 800, marginBottom: '4px' }}>{mentor.name}</h3>
@@ -517,7 +517,7 @@ export default function Home() {
           ═══════════════════════════════════════════════════════ */}
       <section ref={srFinancial.ref} style={{ padding: 'var(--space-24) 0', position: 'relative', ...fadeInStyles(srFinancial.isVisible) }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto var(--space-16)' }}>
+          <div className="section-header" style={{ maxWidth: '800px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '9999px', background: 'var(--color-success-bg)', color: 'var(--color-success)', fontWeight: 800, fontSize: 'var(--font-size-sm)', marginBottom: 'var(--space-6)' }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
               Des résultats concrets, sans diplôme
@@ -530,9 +530,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-8)' }}>
+          <div className="cards-grid">
             {financialResults.map((res, i) => (
-              <div key={i} className="glass-card" style={{ padding: 'var(--space-8)', borderRadius: 'var(--radius-2xl)', position: 'relative', overflow: 'hidden', borderTop: `4px solid ${res.color}` }}>
+              <div key={i} className="glass-card financial-card" style={{ borderTop: `4px solid ${res.color}` }}>
                 {/* Background watermark */}
                 <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke={res.color} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" style={{ position: 'absolute', top: '-10px', right: '-10px', opacity: 0.05, pointerEvents: 'none' }}><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
                 
@@ -562,16 +562,16 @@ export default function Home() {
           ═══════════════════════════════════════════════════════ */}
       <section ref={srTestimonials.ref} style={{ padding: 'var(--space-24) 0', position: 'relative', overflow: 'hidden', ...fadeInStyles(srTestimonials.isVisible) }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto var(--space-16)' }}>
-            <div style={{ color: 'var(--color-accent-primary)', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: 'var(--space-3)', fontSize: 'var(--font-size-sm)' }}>Témoignages</div>
+          <div className="section-header">
+            <div className="section-eyebrow">Témoignages</div>
             <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', fontWeight: 900, marginBottom: 'var(--space-4)', letterSpacing: '-0.02em' }}>
               Ils ont transformé leur vie
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-8)' }}>
+          <div className="cards-grid">
             {testimonials.map((t, i) => (
-              <div key={i} style={{ background: 'var(--color-bg-primary)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-2xl)', padding: 'var(--space-8)', position: 'relative', transition: 'all 0.3s ease', display: 'flex', flexDirection: 'column' }}>
+              <div key={i} className="testimonial-card">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style={{ color: 'var(--color-accent-lighter)', marginBottom: 'var(--space-4)' }}>
                   <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" fill="currentColor" />
                   <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" fill="currentColor" />
@@ -666,9 +666,9 @@ export default function Home() {
           ═══════════════════════════════════════════════════════ */}
       <section ref={srGuarantee.ref} style={{ padding: 'var(--space-20) 0', ...fadeInStyles(srGuarantee.isVisible) }}>
         <div className="container">
-          <div className="glass-panel" style={{ maxWidth: '800px', margin: '0 auto', padding: 'var(--space-10)', borderRadius: 'var(--radius-3xl)', border: '2px solid rgba(245, 158, 11, 0.3)', background: 'linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 250, 240, 1) 100%)', boxShadow: '0 25px 50px -12px rgba(245, 158, 11, 0.15)', display: 'flex', alignItems: 'center', gap: 'var(--space-8)' }}>
-            <div style={{ width: '120px', height: '120px', flexShrink: 0, background: 'var(--color-warning)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', boxShadow: '0 10px 30px rgba(245, 158, 11, 0.4)', border: '4px solid #fff' }}>
-              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+          <div className="guarantee-card">
+            <div style={{ width: '100px', height: '100px', flexShrink: 0, background: 'var(--color-warning)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', boxShadow: '0 10px 30px rgba(245, 158, 11, 0.4)', border: '4px solid #fff' }}>
+              <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
             </div>
             <div>
               <h3 style={{ fontSize: 'var(--font-size-2xl)', fontWeight: 900, marginBottom: 'var(--space-3)', color: 'var(--color-text-primary)' }}>Garantie 14 jours "Béton"</h3>
@@ -703,7 +703,7 @@ export default function Home() {
           ═══════════════════════════════════════════════════════ */}
       <section style={{ padding: '0 0 var(--space-24) 0', position: 'relative' }}>
         <div className="container">
-          <div style={{ background: 'var(--gradient-primary)', borderRadius: 'var(--radius-3xl)', padding: 'clamp(3rem, 6vw, 5rem) var(--space-8)', textAlign: 'center', color: 'white', position: 'relative', overflow: 'hidden', boxShadow: '0 25px 60px -12px rgba(70, 69, 231, 0.5)' }}>
+          <div className="cta-final" style={{ background: 'var(--gradient-primary)', borderRadius: 'var(--radius-3xl)', textAlign: 'center', color: 'white', position: 'relative', overflow: 'hidden', boxShadow: '0 25px 60px -12px rgba(70, 69, 231, 0.5)' }}>
             <div style={{ position: 'absolute', top: '-40%', right: '-20%', width: '60%', height: '140%', background: 'radial-gradient(ellipse, rgba(255,255,255,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
             <div style={{ position: 'absolute', bottom: '-40%', left: '-20%', width: '60%', height: '140%', background: 'radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
             

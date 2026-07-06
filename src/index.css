@@ -2125,15 +2125,205 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Fix for Benefits Section Grid */
+/* ── Home Page Responsive Grids & Design ──────────────────── */
+
+/* Stats counter grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+  }
+}
+.stats-grid > div {
+  padding: var(--space-6);
+  border-radius: var(--radius-2xl);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stats-grid > div:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Cards grid (courses, testimonials, audience, financial, mentors) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+@media (min-width: 640px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 2 columns grid (audience, mentors) */
+.cards-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+@media (min-width: 768px) {
+  .cards-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Benefits grid */
 .benefits-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-16);
+  gap: var(--space-12);
   align-items: center;
 }
 @media (min-width: 992px) {
   .benefits-grid {
     grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
   }
+}
+
+/* Guarantee section */
+.guarantee-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-8);
+  border-radius: var(--radius-3xl);
+  border: 2px solid rgba(245, 158, 11, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 250, 240, 1) 100%);
+  box-shadow: 0 25px 50px -12px rgba(245, 158, 11, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-6);
+}
+@media (min-width: 768px) {
+  .guarantee-card {
+    flex-direction: row;
+    text-align: left;
+    gap: var(--space-8);
+    padding: var(--space-10);
+  }
+}
+
+/* Mentor card responsive (horizontal -> vertical on mobile) */
+.mentor-card {
+  padding: var(--space-6);
+  border-radius: var(--radius-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+}
+@media (min-width: 640px) {
+  .mentor-card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: var(--space-6);
+  }
+}
+
+/* Section header */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--space-12);
+}
+@media (min-width: 768px) {
+  .section-header {
+    margin-bottom: var(--space-16);
+  }
+}
+
+/* Section eyebrow */
+.section-eyebrow {
+  color: var(--color-accent-primary);
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-sm);
+}
+
+/* Course card hover effect */
+.course-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+.course-card:hover img {
+  transform: scale(1.06);
+}
+
+/* Financial result card */
+.financial-card {
+  padding: var(--space-8);
+  border-radius: var(--radius-2xl);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.financial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+/* Testimonial card */
+.testimonial-card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-patch: var(--radius-2xl);
+  padding: var(--space-8);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+/* CTA section responsive */
+.cta-final {
+  padding: clamp(2.5rem, 6vw, 5rem) var(--space-6);
+}
+@media (min-width: 768px) {
+  .cta-final {
+    padding: clamp(3rem, 6vw, 5rem) var(--space-8);
+  }
+}
+
+/* Price layout (stack on tiny screens) */
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
 }
